@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            min-height: 100vh;
+            background: linear-gradient(45deg,#7ee56a, #f34ff0);
+            background-image: url('imgg.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        nav
+        {
+            height: 50px;
+            background-color: rgb(29, 17, 71);
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav ul{
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+        nav a{
+            height: 100%;
+            padding: 0px 30px ;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: 700;
+            text-transform: capitalize;
+            
+        }
+        nav a:hover{
+            color: rgb(34, 255, 0);
+        }
+        nav li:first{
+            margin-right: auto;
+        }
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(255, 255, 255, 0.181);
+    backdrop-filter: blur(10px);
+    display: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.sidebar li{
+    width: 100%;
+
+}
+.menu-btn{
+    display: none;
+}
+@media(max-width:800px)
+{
+    .hideOnMobil{
+        display: none;
+    }
+    .menu-btn{
+        display: block;
+    }
+}
+@media(max-width:400px)
+{
+    .sidebar{
+        width: 100%;
+    }
+
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li onclick= hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="#"><i class='bx bxs-home'></i>Home</a></li>
+            <li><a href="#"><i class='bx bx-info-circle'></i>about</a></li>
+            <li><a href="#"><i class='bx bx-code-alt'></i>skills</a></li>
+            <li><a href="#"><i class='bx bxs-bar-chart-square'></i>project</a></li>
+            <li><a href="#"><i class='bx bxs-phone-call'></i>contact</a></li>
+        </ul>
+        <ul>
+            <li class="hideOnMobil"><a href="#" ><i class='bx bxs-home'></i>Home</a></li>
+            <li class="hideOnMobil"><a href="#"><i class='bx bx-info-circle'></i>about</a></li>
+            <li class="hideOnMobil"><a href="#"><i class='bx bx-code-alt'></i>skills</a></li>
+            <li class="hideOnMobil"><a href="#"><i class='bx bxs-bar-chart-square'></i>project</a></li>
+            <li class="hideOnMobil"><a href="#"><i class='bx bxs-phone-call'></i>content</a></li>
+            <li class="menu-btn" onclick= showSidebar()><a href="#" ><svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#fff"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+    </nav>
+    <script>
+        function showSidebar(){
+            const sidebar=document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function hideSidebar(){
+            const sidebar=document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+    </script>
+</body>
+</html>
